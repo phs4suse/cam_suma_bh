@@ -95,8 +95,8 @@ EOF
 # Set Hostname
 #--------------------------------------
 HOST_PREFIX=${HOST_PREFIX:-"phsvm"}
-NET_DEVICE=${NET_DEVICE:"eth0"}
-LAST_MAC4=$(sed -rn "s/^.*([0-9A-F:]{5})$/\1/gi;s/://p" /sys/class/net/${NET_DEVICE}/address)
+#NET_DEVICE=${NET_DEVICE:"eth0"}
+LAST_MAC4=$(sed -rn "s/^.*([0-9A-F:]{5})$/\1/gi;s/://p" /sys/class/net/eth0/address)
 NEW_HOSTNAME=${HOST_PREFIX}-{$LAST_MAC4:-0000}
 hostnamectl hostname ${NEW_HOSTNAME}
 
